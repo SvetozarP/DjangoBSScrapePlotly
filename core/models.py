@@ -6,3 +6,10 @@ class Fixture(models.Model):
     team2 = models.CharField(max_length=128)
     team1_goals = models.IntegerField()
     team2_goals = models.IntegerField()
+
+    def get_scores(self, team):
+        if team == self.team1:
+            return self.team1_goals
+        if team == self.team2:
+            return self.team2_goals
+        return None
